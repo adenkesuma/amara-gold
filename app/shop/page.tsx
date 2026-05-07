@@ -699,7 +699,7 @@ export default function Shop() {
             textTransform: 'uppercase',
           }}
         >
-          Amara Gold
+          omanga Gold
         </span>
         <span
           style={{

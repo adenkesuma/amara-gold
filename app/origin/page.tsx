@@ -185,7 +185,7 @@ export default function Origin() {
             textTransform: 'uppercase',
           }}
         >
-          Amara Gold
+          omanga Gold
         </span>
         <span
           style={{
@@ -195,7 +195,7 @@ export default function Origin() {
             opacity: 0.5,
           }}
         >
-          © 2025 Amara Gold. All rights reserved.
+          © 2025 omanga Gold. All rights reserved.
         </span>
       </footer>
     </>

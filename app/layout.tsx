@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Amara Gold – Pure Gold. Perfectly Bottled.",
+  title: "omanga Gold – Pure Gold. Perfectly Bottled.",
   description: "Cold-pressed mango. Nothing artificial. Ever. Small batch, ships worldwide.",
   openGraph: {
     images: ["/frames/frame_0001.jpg"],

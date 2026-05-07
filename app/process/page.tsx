@@ -592,7 +592,7 @@ export default function Process() {
             textTransform: 'uppercase',
           }}
         >
-          Amara Gold
+          omanga Gold
         </span>
         <span
           style={{

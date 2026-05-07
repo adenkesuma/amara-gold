@@ -68,7 +68,7 @@ export default function LoadingScreen({ frameUrls, onLoaded }: LoadingScreenProp
           textTransform: "uppercase",
         }}
       >
-        Amara Gold
+        omanga Gold
       </div>
 
       <div

@@ -56,7 +56,7 @@ export default function Navbar() {
           textTransform: 'uppercase',
         }}
       >
-        Amara Gold
+        omanga Gold
       </Link>
 
       <ul
