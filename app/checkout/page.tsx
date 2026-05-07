@@ -597,10 +597,10 @@ export default function Checkout() {
                         transition: 'border-color 0.3s ease',
                       }}
                       onFocus={(e) => {
-                        (e.target as HTMLInputElement).style.borderColor = 'var(--amber)';
+                        (e.target as HTMLSelectElement).style.borderColor = 'var(--amber)';
                       }}
                       onBlur={(e) => {
-                        (e.target as HTMLInputElement).style.borderColor = 'rgba(201,123,26,0.2)';
+                        (e.target as HTMLSelectElement).style.borderColor = 'rgba(201,123,26,0.2)';
                       }}
                     >
                       <option value="USA">United States</option>
