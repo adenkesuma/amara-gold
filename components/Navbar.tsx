@@ -2,9 +2,11 @@
 
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
+import { useCart } from '@/hooks/useCart';
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
+  const { getCartItemCount } = useCart();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 100);
@@ -59,36 +61,86 @@ export default function Navbar() {
         omanga Gold
       </Link>
 
-      <ul
-        style={{
-          display: 'flex',
-          alignItems: 'center',
-          gap: '32px',
-          listStyle: 'none',
-        }}
-        className="nav-links-desktop"
-      >
-        {['Origin', 'Process', 'Shop'].map((item) => (
-          <li key={item}>
-            <Link
-              href={getPath(item)}
+      <div style={{ display: 'flex', alignItems: 'center', gap: '24px' }}>
+        <ul
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: '32px',
+            listStyle: 'none',
+          }}
+          className="nav-links-desktop"
+        >
+          {['Origin', 'Process', 'Shop'].map((item) => (
+            <li key={item}>
+              <Link
+                href={getPath(item)}
+                style={{
+                  fontFamily: 'var(--font-inter), sans-serif',
+                  fontSize: '12px',
+                  letterSpacing: '2px',
+                  color: 'var(--cream-muted)',
+                  textDecoration: 'none',
+                  textTransform: 'uppercase',
+                  transition: 'color 0.3s ease',
+                }}
+                onMouseEnter={(e) => ((e.target as HTMLElement).style.color = 'var(--amber)')}
+                onMouseLeave={(e) => ((e.target as HTMLElement).style.color = 'var(--cream-muted)')}
+              >
+                {item}
+              </Link>
+            </li>
+          ))}
+        </ul>
+
+        {/* Cart Icon */}
+        <Link
+          href="/cart"
+          style={{
+            position: 'relative',
+            display: 'flex',
+            alignItems: 'center',
+          }}
+        >
+          <span
+            style={{
+              fontFamily: 'var(--font-inter), sans-serif',
+              fontSize: '12px',
+              letterSpacing: '2px',
+              color: 'var(--cream-muted)',
+              textDecoration: 'none',
+              textTransform: 'uppercase',
+              transition: 'color 0.3s ease',
+            }}
+            onMouseEnter={(e) => ((e.target as HTMLElement).style.color = 'var(--amber)')}
+            onMouseLeave={(e) => ((e.target as HTMLElement).style.color = 'var(--cream-muted)')}
+          >
+            Cart
+          </span>
+          {getCartItemCount() > 0 && (
+            <span
               style={{
+                position: 'absolute',
+                top: '-8px',
+                right: '-8px',
+                background: 'var(--amber)',
+                color: 'var(--bg-deep)',
                 fontFamily: 'var(--font-inter), sans-serif',
-                fontSize: '12px',
-                letterSpacing: '2px',
-                color: 'var(--cream-muted)',
-                textDecoration: 'none',
-                textTransform: 'uppercase',
-                transition: 'color 0.3s ease',
+                fontSize: '10px',
+                fontWeight: 500,
+                width: '18px',
+                height: '18px',
+                borderRadius: '50%',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
               }}
-              onMouseEnter={(e) => ((e.target as HTMLElement).style.color = 'var(--amber)')}
-              onMouseLeave={(e) => ((e.target as HTMLElement).style.color = 'var(--cream-muted)')}
             >
-              {item}
-            </Link>
-          </li>
-        ))}
-      </ul>
+              {getCartItemCount()}
+            </span>
+          )}
+        </Link>
+      </div>
 
       <Link
         href="#cta-section"

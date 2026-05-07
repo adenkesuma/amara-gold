@@ -2,6 +2,7 @@
 
 import { useEffect } from 'react';
 import Link from 'next/link';
+import { useCart } from '@/hooks/useCart';
 import Navbar from '@/components/Navbar';
 import CTASection from '@/components/CTASection';
 
@@ -10,6 +11,8 @@ export default function Shop() {
     // Scroll to top when route changes
     window.scrollTo(0, 0);
   }, []);
+
+  const { addToCart } = useCart();
 
   return (
     <>
@@ -184,8 +187,16 @@ export default function Shop() {
                     >
                       $24.99
                     </span>
-                    <Link
-                      href="/"
+                    <button
+                      onClick={() => {
+                        console.log('Add to Cart clicked for Classic Mango Nectar');
+                        addToCart({
+                          id: 'classic-mango-nectar',
+                          name: 'Classic Mango Nectar',
+                          price: 24.99,
+                          image: '/classic-mango-nectar.png'
+                        });
+                      }}
                       style={{
                         fontFamily: 'var(--font-inter), sans-serif',
                         fontSize: '12px',
@@ -198,6 +209,7 @@ export default function Shop() {
                         padding: '6px 16px',
                         borderRadius: '2px',
                         transition: 'background 0.3s ease, color 0.3s ease',
+                        cursor: 'pointer',
                       }}
                       onMouseEnter={(e) => {
                         (e.target as HTMLElement).style.background = 'var(--amber)';
@@ -208,8 +220,8 @@ export default function Shop() {
                         (e.target as HTMLElement).style.color = 'var(--amber)';
                       }}
                     >
-                      Buy Now
-                    </Link>
+                      Add to Cart
+                    </button>
                   </div>
                 </div>
               </div>
@@ -308,8 +320,16 @@ export default function Shop() {
                     >
                       $27.99
                     </span>
-                    <Link
-                      href="/"
+                    <button
+                      onClick={() => {
+                        console.log('Add to Cart clicked for Ginger-Infused Mango');
+                        addToCart({
+                          id: 'ginger-infused-mango',
+                          name: 'Ginger-Infused Mango',
+                          price: 27.99,
+                          image: '/ginger-infused-mango.png'
+                        });
+                      }}
                       style={{
                         fontFamily: 'var(--font-inter), sans-serif',
                         fontSize: '12px',
@@ -322,6 +342,7 @@ export default function Shop() {
                         padding: '6px 16px',
                         borderRadius: '2px',
                         transition: 'background 0.3s ease, color 0.3s ease',
+                        cursor: 'pointer',
                       }}
                       onMouseEnter={(e) => {
                         (e.target as HTMLElement).style.background = 'var(--amber)';
@@ -332,8 +353,8 @@ export default function Shop() {
                         (e.target as HTMLElement).style.color = 'var(--amber)';
                       }}
                     >
-                      Buy Now
-                    </Link>
+                      Add to Cart
+                    </button>
                   </div>
                 </div>
               </div>
@@ -432,8 +453,16 @@ export default function Shop() {
                     >
                       $32.99
                     </span>
-                    <Link
-                      href="/"
+                    <button
+                      onClick={() => {
+                        console.log('Add to Cart clicked for Reserve Barrel Aged');
+                        addToCart({
+                          id: 'reserve-barrel-aged',
+                          name: 'Reserve Barrel Aged',
+                          price: 32.99,
+                          image: '/reserve-barrel-aged.png'
+                        });
+                      }}
                       style={{
                         fontFamily: 'var(--font-inter), sans-serif',
                         fontSize: '12px',
@@ -446,6 +475,7 @@ export default function Shop() {
                         padding: '6px 16px',
                         borderRadius: '2px',
                         transition: 'background 0.3s ease, color 0.3s ease',
+                        cursor: 'pointer',
                       }}
                       onMouseEnter={(e) => {
                         (e.target as HTMLElement).style.background = 'var(--amber)';
@@ -456,8 +486,8 @@ export default function Shop() {
                         (e.target as HTMLElement).style.color = 'var(--amber)';
                       }}
                     >
-                      Buy Now
-                    </Link>
+                      Add to Cart
+                    </button>
                   </div>
                 </div>
               </div>
@@ -556,8 +586,16 @@ export default function Shop() {
                     >
                       $129.99
                     </span>
-                    <Link
-                      href="/"
+                    <button
+                      onClick={() => {
+                        console.log('Add to Cart clicked for Family Collection');
+                        addToCart({
+                          id: 'family-collection',
+                          name: 'Family Collection',
+                          price: 129.99,
+                          image: '/family-collection.png'
+                        });
+                      }}
                       style={{
                         fontFamily: 'var(--font-inter), sans-serif',
                         fontSize: '12px',
@@ -570,6 +608,7 @@ export default function Shop() {
                         padding: '6px 16px',
                         borderRadius: '2px',
                         transition: 'background 0.3s ease, color 0.3s ease',
+                        cursor: 'pointer',
                       }}
                       onMouseEnter={(e) => {
                         (e.target as HTMLElement).style.background = 'var(--amber)';
@@ -580,8 +619,8 @@ export default function Shop() {
                         (e.target as HTMLElement).style.color = 'var(--amber)';
                       }}
                     >
-                      Buy Now
-                    </Link>
+                      Add to Cart
+                    </button>
                   </div>
                 </div>
               </div>
