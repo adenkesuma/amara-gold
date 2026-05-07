@@ -14,16 +14,21 @@ type Listener = (cart: CartItem[]) => void;
 class CartStore {
   private cart: CartItem[] = [];
   private listeners: Set<Listener> = new Set();
+  private readonly isClient: boolean;
 
   constructor() {
-    // Load from localStorage on creation
-    const saved = localStorage.getItem('amaraCart');
-    if (saved) {
-      try {
-        this.cart = JSON.parse(saved);
-      } catch (e) {
-        console.error('Failed to parse cart from localStorage', e);
-        this.cart = [];
+    // Check if we are on the client side
+    this.isClient = typeof window !== 'undefined';
+    // Load from localStorage only on client
+    if (this.isClient) {
+      const saved = localStorage.getItem('amaraCart');
+      if (saved) {
+        try {
+          this.cart = JSON.parse(saved);
+        } catch (e) {
+          console.error('Failed to parse cart from localStorage', e);
+          this.cart = [];
+        }
       }
     }
   }
@@ -42,7 +47,9 @@ class CartStore {
   }
 
   private persistAndNotify() {
-    localStorage.setItem('amaraCart', JSON.stringify(this.cart));
+    if (this.isClient) {
+      localStorage.setItem('amaraCart', JSON.stringify(this.cart));
+    }
     this.listeners.forEach((listener) => listener(this.cart));
   }
 
